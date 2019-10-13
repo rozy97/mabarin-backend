@@ -14,6 +14,7 @@ app.use(logger("dev"));
 app.use(cors());
 app.use(helmet({ xssFilter: true }));
 
+app.get('/', (req, res) => res.send({msg:'testing success'}))
 app.use("/api", router);
 
 // running server
