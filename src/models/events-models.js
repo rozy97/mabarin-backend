@@ -56,3 +56,5 @@ const eventsModels = {
     });
   }
 };
+
+module.exports = eventsModels;
