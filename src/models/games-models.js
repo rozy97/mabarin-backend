@@ -56,3 +56,5 @@ const gamesModels = {
     });
   }
 };
+
+module.exports = gamesModels;
