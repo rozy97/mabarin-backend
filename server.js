@@ -14,7 +14,7 @@ app.use(logger("dev"));
 app.use(cors());
 app.use(helmet({ xssFilter: true }));
 
-app.use("api/", router);
+app.use("/api", router);
 
 // running server
 const port = process.env.PORT || 6969;
