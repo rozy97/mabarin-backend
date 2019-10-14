@@ -3,11 +3,17 @@ const formResponse = require("../helpers/form-response");
 
 const usersControllers = {
   register: (req, res) => {
-    const data = req.body;
+    const data = {
+      uid: req.body.uid || "Belum ada uid",
+      name: req.body.name || "Monyet",
+      image: req.body.image || "http://picsum.photos/100/100",
+      mabarhistory: [],
+      rating: []
+    };
     usersModels
       .addUser(data)
       .then(result => {
-        formResponse.success(res, 200, { result, data });
+        formResponse.success(res, 200, data);
       })
       .catch(error => res.json(error));
   },
@@ -30,7 +36,7 @@ const usersControllers = {
       })
       .catch(error => res.json(error));
   },
-  addRating: (req, res) => {
+  updateRating: (req, res) => {
     usersModels
       .updateRating()
       .then()
