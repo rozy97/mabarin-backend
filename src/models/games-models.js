@@ -10,11 +10,11 @@ const gamesModels = {
       resolve(result);
     });
   },
-  getGameById: id => {
+  getGameById: _id => {
     return new Promise((resolve, reject) => {
       result = conn()
         .collection("games")
-        .find({ id })
+        .find({ _id })
         .toArray();
       resolve(result);
     });
@@ -37,20 +37,20 @@ const gamesModels = {
       resolve(result);
     });
   },
-  editGame: (id, data) => {
+  editGame: (_id, data) => {
     return new Promise((resolve, reject) => {
       result = conn()
         .collection("games")
-        .updateOne({ id }, { $set: data });
+        .updateOne({ _id }, { $set: data });
 
       resolve(result);
     });
   },
-  deleteGame: id => {
+  deleteGame: _id => {
     return new Promise((resolve, reject) => {
       result = conn()
         .collection("games")
-        .findOneAndDelete({ id });
+        .findOneAndDelete({ _id });
 
       resolve(result);
     });

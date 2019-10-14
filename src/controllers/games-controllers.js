@@ -11,7 +11,8 @@ const gamesControllers = {
       .catch(error => res.json(error));
   },
   getGameById: (req, res) => {
-    const id = req.params.id;
+    const ObjectId = require("mongodb").ObjectID;
+    const id = new ObjectId(req.params.id);
     gamesModels
       .getGameById(id)
       .then(result => {
@@ -31,26 +32,28 @@ const gamesControllers = {
   addGame: (req, res) => {
     const data = req.body;
     gamesModels
-      .getAllGames(data)
+      .addGame(data)
       .then(result => {
-        formResponse.success(res, 200, result);
+        formResponse.success(res, 200, data);
       })
       .catch(error => res.json(error));
   },
   editGames: (req, res) => {
-    const id = req.params.id;
+    const ObjectId = require("mongodb").ObjectID;
+    const id = new ObjectId(req.params.id);
     const data = req.body;
     gamesModels
-      .getAllGames(id, data)
+      .editGame(id, data)
       .then(result => {
-        formResponse(res, 200, result);
+        formResponse.success(res, 200, data);
       })
-      .catch(error => res.json(erros));
+      .catch(error => res.json(error));
   },
   deleteGames: (req, res) => {
-    const id = req.params.id;
+    const ObjectId = require("mongodb").ObjectID;
+    const id = new ObjectId(req.params.id);
     gamesModels
-      .getAllGames(id)
+      .deleteGame(id)
       .then(result => {
         formResponse.success(res, 200, result);
       })
