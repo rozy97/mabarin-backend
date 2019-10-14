@@ -51,5 +51,13 @@ const usersModels = {
         .findOneAndDelete({ uid });
       resolve(result);
     });
+  },
+  addHistoryMabar: (id, data) => {
+    return new Promise((resolve, reject) => {});
+  },
+  updateRating: (id, data) => {
+    return new Promise((resolve, reject) => {});
   }
 };
+
+module.exports = usersModels;
