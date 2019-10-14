@@ -43,7 +43,7 @@ const gamesControllers = {
     gamesModels
       .getAllGames(id, data)
       .then(result => {
-        formResponse(res, 200, data);
+        formResponse(res, 200, result);
       })
       .catch(error => res.json(erros));
   },
