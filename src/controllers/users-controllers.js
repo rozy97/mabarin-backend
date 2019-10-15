@@ -7,6 +7,7 @@ const usersControllers = {
       uid: req.body.uid || "Belum ada uid",
       name: req.body.name || "Monyet",
       image: req.body.image || "http://picsum.photos/100/100",
+      status: "freeuser",
       mabarhistory: [],
       rating: []
     };
@@ -27,7 +28,7 @@ const usersControllers = {
       .catch(error => res.json(error));
   },
   editUser: (req, res) => {
-    const uid = req.body.uid;
+    const uid = req.params.uid;
     const data = req.body;
     usersModels
       .edituser(uid, data)
@@ -36,15 +37,22 @@ const usersControllers = {
       })
       .catch(error => res.json(error));
   },
+  addHistoryMabar: (req, res) => {
+    const uid = req.params.uid;
+    const data = {
+      date: Date.now(),
+      game: req.body.game || "mobile legends",
+      uidfriend: req.body.uidfriend || "blm ada uidfriend",
+      rating: req.body.rating || 00
+    };
+    usersModels
+      .addHistoryMabar(uid, data)
+      .then(result => formResponse.success(res, 200, result))
+      .catch(error => res.json(error));
+  },
   updateRating: (req, res) => {
     usersModels
       .updateRating()
-      .then()
-      .catch();
-  },
-  addHistoryMabar: (req, res) => {
-    usersModels
-      .addHistoryMabar()
       .then()
       .catch();
   }

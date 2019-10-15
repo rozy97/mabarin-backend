@@ -52,8 +52,13 @@ const usersModels = {
       resolve(result);
     });
   },
-  addHistoryMabar: (id, data) => {
-    return new Promise((resolve, reject) => {});
+  addHistoryMabar: (uid, data) => {
+    return new Promise((resolve, reject) => {
+      result = conn()
+        .collection("users")
+        .updateOne({ uid }, { $push: { mabarhistory: data } });
+      resolve(result);
+    });
   },
   updateRating: (id, data) => {
     return new Promise((resolve, reject) => {});
