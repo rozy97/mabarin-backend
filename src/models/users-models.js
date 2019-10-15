@@ -60,13 +60,17 @@ const usersModels = {
       resolve(result);
     });
   },
-  addRating: (uid, data) => {
+  addRating: (uid, uidfriend, date, rating) => {
     return new Promise((resolve, reject) => {
       result = conn()
         .collection("users")
         .updateOne(
-          { uid: uid, "mabarhistory.date": 1571088245855 },
-          { $set: { "mabarhistory.$.rating": data } }
+          {
+            uid,
+            "mabarhistory.date": date,
+            "mabarhistory.uidfriend": uidfriend
+          },
+          { $set: { "mabarhistory.$.rating": rating } }
         );
       resolve(result);
     });

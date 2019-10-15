@@ -45,14 +45,16 @@ const usersControllers = {
     };
     usersModels
       .addHistoryMabar(uid, data)
-      .then(result => formResponse.success(res, 200, result))
+      .then(result => formResponse.success(res, 200, data))
       .catch(error => res.json(error));
   },
   addRating: async (req, res) => {
     const uid = req.params.uid;
+    const uidfriend = req.body.uidfriend;
+    const date = parseInt(req.body.date);
     const rating = parseFloat(req.body.rating);
     usersModels
-      .addRating(uid, rating)
+      .addRating(uid, uidfriend, date, rating)
       .then(result => {
         formResponse.success(res, 200, result);
       })
