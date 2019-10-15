@@ -6,8 +6,6 @@ const usersControllers = {
     const data = {
       uid: req.body.uid || "Belum ada uid",
       name: req.body.name || "Monyet",
-      image: req.body.image || "http://picsum.photos/100/100",
-      status: "freeuser",
       mabarhistory: [],
       rating: []
     };
@@ -43,7 +41,7 @@ const usersControllers = {
       date: Date.now(),
       game: req.body.game || "mobile legends",
       uidfriend: req.body.uidfriend || "blm ada uidfriend",
-      rating: req.body.rating || 00
+      rating: parseFloat(req.body.rating) || 0
     };
     usersModels
       .addHistoryMabar(uid, data)
