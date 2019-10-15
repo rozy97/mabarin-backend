@@ -48,11 +48,15 @@ const usersControllers = {
       .then(result => formResponse.success(res, 200, result))
       .catch(error => res.json(error));
   },
-  updateRating: (req, res) => {
+  addRating: async (req, res) => {
+    const uid = req.params.uid;
+    const rating = parseFloat(req.body.rating);
     usersModels
-      .updateRating()
-      .then()
-      .catch();
+      .addRating(uid, rating)
+      .then(result => {
+        formResponse.success(res, 200, result);
+      })
+      .catch(error => res.json(error));
   }
 };
 

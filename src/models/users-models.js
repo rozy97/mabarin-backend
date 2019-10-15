@@ -60,8 +60,16 @@ const usersModels = {
       resolve(result);
     });
   },
-  updateRating: (id, data) => {
-    return new Promise((resolve, reject) => {});
+  addRating: (uid, data) => {
+    return new Promise((resolve, reject) => {
+      result = conn()
+        .collection("users")
+        .updateOne(
+          { uid: uid, "mabarhistory.date": 1571088245855 },
+          { $set: { "mabarhistory.$.rating": data } }
+        );
+      resolve(result);
+    });
   }
 };
 
