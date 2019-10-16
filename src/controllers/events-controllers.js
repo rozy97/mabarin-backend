@@ -9,7 +9,9 @@ const eventsControllers = {
       .catch(error => res.json(error));
   },
   getEventById: (req, res) => {
-    const id = req.params.id;
+    // const id = req.params.id;
+    const ObjectId = require("mongodb").ObjectID;
+    const id = new ObjectId(req.params.id);
     eventsModels
       .getEventById(id)
       .then(result => formResponse.success(res, 200, result[0]))

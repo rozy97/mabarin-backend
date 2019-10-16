@@ -6,6 +6,7 @@ const usersControllers = {
     const data = {
       uid: req.body.uid || "Belum ada uid",
       name: req.body.name || "Monyet",
+      ...req.body,
       mabarhistory: [],
       rating: []
     };
@@ -43,9 +44,14 @@ const usersControllers = {
       uidfriend: req.body.uidfriend || "blm ada uidfriend",
       rating: parseFloat(req.body.rating) || 0
     };
+    const data2 = {
+      date: Date.now(),
+      ...req.body,
+      rating: 0
+    };
     usersModels
-      .addHistoryMabar(uid, data)
-      .then(result => formResponse.success(res, 200, data))
+      .addHistoryMabar(uid, data2)
+      .then(result => formResponse.success(res, 200, data2))
       .catch(error => res.json(error));
   },
   addRating: async (req, res) => {
