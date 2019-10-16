@@ -4,6 +4,7 @@ const router = express.Router();
 const usersControllers = require("../controllers/users-controllers");
 
 router
+  .get("/uid/:uid", usersControllers.getUserByUid)
   .post("/login", usersControllers.login)
   .post("/register", usersControllers.register)
   .patch("/uid/:uid", usersControllers.editUser)

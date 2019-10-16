@@ -59,6 +59,13 @@ const usersControllers = {
         formResponse.success(res, 200, result);
       })
       .catch(error => res.json(error));
+  },
+  getUserByUid: (req, res) => {
+    const uid = req.params.uid;
+    usersModels
+      .getUserbyUid(uid)
+      .then(result => formResponse.success(res, 200, result[0]))
+      .catch(error => res.json(error));
   }
 };
 
