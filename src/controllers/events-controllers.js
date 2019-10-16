@@ -5,23 +5,23 @@ const eventsControllers = {
   getAllEvents: (req, res) => {
     eventsModels
       .getAllEvents()
-      .then()
-      .catch();
+      .then(result => formResponse.success(res, 200, result))
+      .catch(error => res.json(error));
   },
   getEventById: (req, res) => {
     const id = req.params.id;
     eventsModels
       .getEventById(id)
-      .then()
-      .catch();
+      .then(result => formResponse.success(res, 200, result[0]))
+      .catch(error => res.json(error));
   },
   getEventByName: (req, res) => {
     const name = req.params.name;
 
     eventsModels
       .getEventByName(name)
-      .then()
-      .catch();
+      .then(result => formResponse.success(res, 200, result[0]))
+      .catch(error => res.json(error));
   },
   addEvent: (req, res) => {
     const data = req.body;

@@ -10,11 +10,11 @@ const eventsModels = {
       resolve(result);
     });
   },
-  getEventById: id => {
+  getEventById: _id => {
     return new Promise((resolve, reject) => {
       result = conn()
         .collection("events")
-        .find({ id })
+        .find({ _id })
         .toArray();
       resolve(result);
     });
