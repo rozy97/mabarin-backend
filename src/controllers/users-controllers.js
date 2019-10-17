@@ -4,8 +4,8 @@ const formResponse = require("../helpers/form-response");
 const usersControllers = {
   register: (req, res) => {
     const data = {
-      uid: req.body.uid || "Belum ada uid",
-      name: req.body.name || "Monyet",
+      // uid: req.body.uid || "Belum ada uid",
+      // name: req.body.name || "Monyet",
       ...req.body,
       mabarhistory: [],
       rating: []
