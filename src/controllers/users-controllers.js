@@ -10,28 +10,34 @@ const usersControllers = {
       mabarhistory: [],
       rating: [
         {
-          ML: 0,
-          matchplayed: 0
+          game: "Mobile Legend",
+          matchplayed: 0,
+          averageRating: 0
         },
         {
-          VG: 0,
-          matchplayed: 0
+          game: "Vainglory",
+          matchplayed: 0,
+          averageRating: 0
         },
         {
-          PUBG: 0,
-          matchplayed: 0
+          game: "PUBG",
+          matchplayed: 0,
+          averageRating: 0
         },
         {
-          AOV: 0,
-          matchplayed: 0
+          game: "Arena of Valor",
+          matchplayed: 0,
+          averageRating: 0
         },
         {
-          TE: 0,
-          matchplayed: 0
+          game: "Tetris",
+          matchplayed: 0,
+          averageRating: 0
         },
         {
-          COD: 0,
-          matchplayed: 0
+          game: "Call of Duty",
+          matchplayed: 0,
+          averageRating: 0
         }
       ]
     };
@@ -84,11 +90,37 @@ const usersControllers = {
     const uid = req.params.uid;
     const uidfriend = req.body.friendUid;
     const date = parseInt(req.body.date);
-    const rating = parseFloat(req.body.rating);
+    const rating = parseInt(req.body.rating);
+    const gameName = req.body.game;
     usersModels
       .addRating(uid, uidfriend, date, rating)
       .then(result => {
-        formResponse.success(res, 200, result);
+        // formResponse.success(res, 200, result);
+        usersModels
+          .getUserbyUid(uid)
+          .then(reslt => {
+            // console.log(reslt[0].mabarhistory);
+            const historyMabar = reslt[0].mabarhistory.filter(item => {
+              return item.game == gameName;
+            });
+            // console.log(historyMabar);
+            const matchplayed = historyMabar.length;
+            let averageRating = 0,
+              count = 0;
+            for (let i = 0; i < matchplayed; i++) {
+              if (historyMabar[i].rating !== 0) {
+                averageRating += historyMabar[i].rating;
+                count += 1;
+              }
+            }
+            // console.log(averageRating);
+            averageRating = (averageRating / count).toFixed(1);
+            usersModels
+              .averageRating(uid, gameName, averageRating, matchplayed)
+              .then(result3 => formResponse.success(res, 200, result3))
+              .catch(error => res.json(error));
+          })
+          .catch(error => res.json(error));
       })
       .catch(error => res.json(error));
   },
@@ -96,7 +128,10 @@ const usersControllers = {
     const uid = req.params.uid;
     usersModels
       .getUserbyUid(uid)
-      .then(result => formResponse.success(res, 200, result[0]))
+      .then(result => {
+        console.log(result[0]);
+        return formResponse.success(res, 200, result[0]);
+      })
       .catch(error => res.json(error));
   }
 };

@@ -74,6 +74,22 @@ const usersModels = {
         );
       resolve(result);
     });
+  },
+  averageRating: (uid, game, averageRating, matchplayed) => {
+    return new Promise((resolve, reject) => {
+      result = conn()
+        .collection("users")
+        .updateOne(
+          { uid, "rating.game": game },
+          {
+            $set: {
+              "rating.$.averageRating": averageRating,
+              "rating.$.matchplayed": matchplayed
+            }
+          }
+        );
+      resolve(result);
+    });
   }
 };
 
