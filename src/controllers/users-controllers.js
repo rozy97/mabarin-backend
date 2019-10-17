@@ -8,7 +8,14 @@ const usersControllers = {
       // name: req.body.name || "Monyet",
       ...req.body,
       mabarhistory: [],
-      rating: []
+      rating: {
+        ML: 0,
+        VG: 0,
+        PUBG: 0,
+        AOV: 0,
+        TE: 0,
+        COD: 0
+      }
     };
     usersModels
       .addUser(data)
