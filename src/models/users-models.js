@@ -67,8 +67,8 @@ const usersModels = {
         .updateOne(
           {
             uid,
-            "mabarhistory.date": date,
-            "mabarhistory.friendUid": uidfriend
+            "mabarhistory.date": date
+            // "mabarhistory.friendUid": uidfriend
           },
           { $set: { "mabarhistory.$.rating": rating } }
         );
