@@ -68,7 +68,7 @@ const usersModels = {
           {
             uid,
             "mabarhistory.date": date,
-            "mabarhistory.uidfriend": uidfriend
+            "mabarhistory.friendUid": uidfriend
           },
           { $set: { "mabarhistory.$.rating": rating } }
         );
