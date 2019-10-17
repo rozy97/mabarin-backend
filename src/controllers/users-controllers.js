@@ -64,7 +64,7 @@ const usersControllers = {
   addHistoryMabar: (req, res) => {
     const uid = req.params.uid;
     const data = {
-      date: Date.now(),
+      // date: Date.now(),
       game: req.body.game || "mobile legends",
       uidfriend: req.body.uidfriend || "blm ada uidfriend",
       rating: parseFloat(req.body.rating) || 0
