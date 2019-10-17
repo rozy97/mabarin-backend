@@ -56,7 +56,7 @@ const usersControllers = {
   },
   addRating: async (req, res) => {
     const uid = req.params.uid;
-    const uidfriend = req.body.uidfriend;
+    const uidfriend = req.body.friendUid;
     const date = parseInt(req.body.date);
     const rating = parseFloat(req.body.rating);
     usersModels
