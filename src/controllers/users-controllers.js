@@ -70,8 +70,9 @@ const usersControllers = {
       rating: parseFloat(req.body.rating) || 0
     };
     const data2 = {
-      date: Date.now(),
+      // date: Date.now(),
       ...req.body,
+      image: `https://raw.githubusercontent.com/rozy97/pic/master/${req.body.game}.jpg`,
       rating: 0
     };
     usersModels
