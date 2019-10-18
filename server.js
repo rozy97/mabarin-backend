@@ -14,9 +14,9 @@ app.use(logger("dev"));
 app.use(cors());
 app.use(helmet({ xssFilter: true }));
 
-app.get('/', (req, res) => res.send({msg:'testing success'}))
+app.get("/", (req, res) => res.send({ msg: "testing success" }));
 app.use("/api", router);
 
 // running server
-const port = process.env.PORT || 6969;
+const port = 6969;
 app.listen(port, () => console.log(`server listening on port ${port}`));
