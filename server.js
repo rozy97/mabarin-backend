@@ -18,5 +18,5 @@ app.get("/", (req, res) => res.send({ msg: "testing success" }));
 app.use("/api", router);
 
 // running server
-const port = 6969;
+const port = 2000;
 app.listen(port, () => console.log(`server listening on port ${port}`));
