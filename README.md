@@ -48,9 +48,6 @@ Express.js is a web application framework for Node.js. [More about Express](http
    * ``` { "name": "The international", "date": "31 Februari" } ```
 
 
-## End Point (API Documentation)
-Open [documentation.rest]() file in vscode then run it to se more about API documentation. (dont forget to install REST client extension to enable running dotrest file documentation)
-<img src="https://raw.githubusercontent.com/rozy97/pic/master/api-documentation.png">
 
 ## Contributors
 <p align="center">
