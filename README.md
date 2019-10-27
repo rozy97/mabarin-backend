@@ -29,16 +29,24 @@ Express.js is a web application framework for Node.js. [More about Express](http
 7. Choose HTTP Method and enter request url.(ex. localhost:3030/notes)
 8. You can see all the end point [here](#end-point)
 
-## Set up .env file
-Open .env file on your favorite code editor, and copy paste this code below :
-```
-PORT=3030
-HOST=localhost
-USER=root // default
-PASS= // default
-DATABASE=simple-rest
-NODE_ENV=development node server.js
-```
+
+## End Point
+**1. GET**
+* `/users`
+* `/games/:id`
+* `/users/:id` (Get user by id)
+* `/events
+
+**2. POST**
+* `/games`
+    * ``` { "title": "Mobile Legends", "description": "Fly in the sky", "image": "sky.jpg", "date_released": "2019-10-08", "genre_id": "2", "availability": "1" } ```
+
+* `/rating/:id`
+    * ``` { "userrating": "req.body.rating" } ```
+    
+* `/events`
+   * ``` { "name": "The international", "date": "31 Februari" } ```
+
 
 ## End Point (API Documentation)
 Open [documentation.rest]() file in vscode then run it to se more about API documentation. (dont forget to install REST client extension to enable running dotrest file documentation)
