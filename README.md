@@ -55,9 +55,9 @@ Open [documentation.rest]() file in vscode then run it to se more about API docu
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/mahendragalih26">
-        <img width="150" src="https://avatars1.githubusercontent.com/mahendragalih26" alt="Galih Mahendra W"><br/>
-          <sub><b>Galih Mahendra W</b></sub>
+      <a href="https://github.com/areydras">
+        <img width="150" src="https://avatars1.githubusercontent.com/areydras" alt="Galih Mahendra W"><br/>
+          <sub><b>Areydra Desfikri</b></sub>
       </a>
     </td>
     <td align="center">
@@ -68,8 +68,8 @@ Open [documentation.rest]() file in vscode then run it to se more about API docu
     </td>
     <td align="center">
       <a href="https://github.com/Gimindika">
-        <img width="150" src="https://avatars1.githubusercontent.com/Gimindika" alt="Gerrit Indika Mulya"><br/>
-          <sub><b>Gerrit Indika Mulya</b></sub>
+        <img width="150" src="https://avatars1.githubusercontent.com/Oreki13" alt="Gerrit Indika Mulya"><br/>
+          <sub><b>Affandy Nugraha</b></sub>
       </a>
     </td>
   </tr>
